@@ -29,13 +29,13 @@ func connectDB() (*sql.DB, error) {
 func main() {
 	fmt.Println("Tugas Article")
 	
-	execInsert()
-	query()
-	queryRow()
-	execDelete()
+	insertArticle()
+	selectAllArticle()
+	selectSpesifikArticle()
+	deleteOneArticle()
 }
 
-func execDelete() {
+func deleteOneArticle() {
 	db, err := connectDB()
 	if err != nil {
 		log.Printf(err.Error())
@@ -54,7 +54,7 @@ func execDelete() {
 	fmt.Println("Delete success")
 }
 
-func queryRow() {
+func selectSpesifikArticle() {
 	db, err := connectDB()
 	if err != nil {
 		log.Printf(err.Error())
@@ -75,7 +75,7 @@ func queryRow() {
 	
 }
 
-func query() {
+func selectAllArticle() {
 	db, err := connectDB()
 	if err != nil {
 		log.Printf(err.Error())
@@ -112,7 +112,7 @@ func query() {
 	}
 }
 
-func execInsert() {
+func insertArticle() {
 	db, err := connectDB()
 	if err != nil {
 		log.Printf(err.Error())
