@@ -1,0 +1,60 @@
+@startuml
+
+entity sales{
+    id : int <<PK>>
+    --
+    nama_sales : varchar(100)
+    nip : varchar(50)
+    nomer_telpon : varchar(50)
+    bagian : varchar(50)
+    time_stamp : ts
+}
+
+entity mobil{
+    id : int <<PK>>
+    --
+    nama_mobil : varchar(100)
+    tipe_mobil : varchar(100)
+    bahan_bakar : varchar(50)
+    cc_mobil : varchar(50)
+    harga : int
+    qty : int
+    time_stamp : ts
+}
+
+entity formulir_pembelian{
+    id : int <<PK>>
+    --
+    nama_lengkap_pembeli : varcha(100)
+    nomer_ktp : varchar(100)
+    alamat_rumah : varchar(100)
+    nomer_debit : varchar(100)
+    --
+    id_mobil : int <<FK>>
+    --
+    warna : varchar(50)
+    custom_plat : bool
+    tambahan_kit : varchar(100)
+    transmisi : varchar(100)(manual/otomatis)
+    --
+    id_sales : int <<FK>>
+    --
+    time_stamp : ts
+}
+
+entity pembayaran{
+    id : int<<PK>>
+    --
+    id_formulir : int <<FK>>
+    --
+    bukti_transfer : string <<FK>>
+    time_stamp : ts
+}
+
+
+sales ||----||formulir_pembelian
+mobil }|----||formulir_pembelian
+formulir_pembelian ||----||pembayaran
+
+
+@enduml
