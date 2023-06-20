@@ -17,6 +17,8 @@ entity mobil{
     tipe_mobil : varchar(100)
     bahan_bakar : varchar(50)
     cc_mobil : varchar(50)
+    transmisi : varchar(100)(manual/otomatis)
+    warna  : varchar(50)
     harga : int
     qty : int
     time_stamp : ts
@@ -32,10 +34,8 @@ entity formulir_pembelian{
     --
     id_mobil : int <<FK>>
     --
-    warna : varchar(50)
     custom_plat : bool
     tambahan_kit : varchar(100)
-    transmisi : varchar(100)(manual/otomatis)
     --
     id_sales : int <<FK>>
     --
